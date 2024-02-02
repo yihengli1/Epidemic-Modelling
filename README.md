@@ -28,7 +28,7 @@ outcomes of each event. From another perspective, this application can be used o
 macro level where government health agencies, educational institutions, and even data analysts
 can use this application. From providing simulations that encompass various factors and 
 allows researchers or doctors in testing different intervention method to having this tool
-used as an educational tool for providing hands on experience in modeling and analyzing 
+used as an educational tool for providing hands-on experience in modeling and analyzing 
 epidemic situation. At the end of the day, **Anyone could use it.**
 
 ## Why is the project of interest to you?
@@ -41,4 +41,9 @@ personal portfolio as it demonstrates many skills such as statistical analysis,
 data visualization, and it would ultimately be a great showcase for my knowledge of 
 Java. 
 
+## User Stories
+- As a user, I want to be able to add a person to the population
+- As a user, I want to be able to view the simulation in real time
+- As a user, I want to be able to view the statistical graphs at the end of the simulation
+- As a user, I want to be able to turn on/off multiple variable conditions
 
