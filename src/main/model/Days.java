@@ -43,7 +43,11 @@ public class Days {
     }
 
     public int getContactedAmount() {
-        return contactedAmount;
+        int temp = 0;
+        for (int i = 0; i < people.size(); i++) {
+            temp += people.get(i).getContactedTimes();
+        }
+        return temp;
     }
 
     //MODIFIES: this
