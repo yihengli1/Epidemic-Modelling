@@ -6,6 +6,10 @@ public class Person {
     private int age;
     private int contactedTimes;
 
+    //REQUIRES: a > 0
+    //EFFECTS: a person with a starting state of "Alive", their age,
+    //         the amount of times that they have been in contact with
+    //         someone
     public Person(int a) {
         this.state = "Alive";
         this.age = a;

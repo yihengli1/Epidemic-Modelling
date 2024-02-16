@@ -9,6 +9,13 @@ public class Days {
     private int contactedAmount;
     private double contactRate;
 
+
+    //REQUIRES: c > 0, d >= 0
+    //EFFECTS: Creates a day with an empty arrayList of people that are either
+    //         "sick" or "alive", a contactRate where it represents the amount
+    //         of people someone will be expected to contact in a day, the
+    //         amount of dead people already dead, and the contactedAmount
+    //         for the whole list
     public Days(double c, int d) {
         this.people = new ArrayList<Person>();
         this.contactRate = c;
@@ -25,10 +32,12 @@ public class Days {
         return people.size();
     }
 
+    //REQUIRES: p.getState() != "dead"
     public void addPeople(Person p) {
         people.add(p);
     }
 
+    //REQUIRES: people.getState() != "dead" for all elements in list
     //EFFECTS: Adds a group of people to people in our day
     public void addGroupPeople(ArrayList<Person> pl) {
         people.addAll(pl);
@@ -53,7 +62,9 @@ public class Days {
     }
 
     //MODIFIES: this
-    //EFFECTS: Simulate the amount of contact that will happen in one day
+    //EFFECTS: Simulate the amount of contact that will happen in one day,
+    //         where contactRate represents the amount of people one
+    //         person will be expected to see each day,
     //         People can contact each other multiple times in 1 day, but,
     //         cannot contact one another
     public void simulateContactedAmount() {
