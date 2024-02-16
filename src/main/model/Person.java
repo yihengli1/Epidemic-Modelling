@@ -6,9 +6,9 @@ public class Person {
     private int age;
     private int contactedTimes;
 
-    public Person() {
+    public Person(int a) {
         this.state = "Alive";
-        this.age = 0;
+        this.age = a;
         this.contactedTimes = 0;
     }
 
@@ -32,6 +32,10 @@ public class Person {
 
     public int getContactedTimes() {
         return contactedTimes;
+    }
+
+    public void resetContactedTimes() {
+        this.contactedTimes = 0;
     }
 
     public void addContactedTimes() {

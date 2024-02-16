@@ -11,8 +11,8 @@ public class Days {
 
     public Days(double c, int d) {
         this.people = new ArrayList<Person>();
-        this.deathAmount = d;
         this.contactRate = c;
+        this.deathAmount = d;
         this.contactedAmount = 0;
 
     }
@@ -43,30 +43,52 @@ public class Days {
     }
 
     public int getContactedAmount() {
-        int temp = 0;
+        return contactedAmount;
+    }
+
+    public void resetContactedAmount() {
         for (int i = 0; i < people.size(); i++) {
-            temp += people.get(i).getContactedTimes();
+            people.get(i).resetContactedTimes();
         }
-        return temp;
     }
 
     //MODIFIES: this
     //EFFECTS: Simulate the amount of contact that will happen in one day
+    //         People can contact each other multiple times in 1 day, but,
+    //         cannot contact one another
     public void simulateContactedAmount() {
+        resetContactedAmount();
         for (int i = 0; i < getPeopleSize(); i++) {
 
-            int temp = (int) getContactRate();
-            double temp1 = getContactRate() - temp;
+            double temp1 = getContactRate() - (int) getContactRate();
             double temp2 = Math.random();
 
             int contactRate = temp2 <= temp1 ? (int) (getContactRate() + 1) : (int) getContactRate();
 
             for (int k = 0; k < contactRate; k++) {
                 int index = (int) (Math.random() * getPeopleSize());
-                getPeople().get(i).contact(getPeople().get(index));
+                if (index == i) {
+                    contactRate++;
+                } else {
+                    people.get(i).contact(getPeople().get(index));
+                }
             }
         }
+
+        simulateTotalContact();
     }
+
+    //MODIFIES: this
+    //EFFECTS: calculate total number of contact in list
+    public void simulateTotalContact() {
+        int temp = 0;
+        for (int i = 0; i < people.size(); i++) {
+            temp += people.get(i).getContactedTimes();
+        }
+        contactedAmount = temp;
+    }
+
+
 
 
 
