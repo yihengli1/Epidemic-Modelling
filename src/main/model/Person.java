@@ -8,7 +8,7 @@ public class Person {
 
     //REQUIRES: a > 0
     //EFFECTS: a person with a starting state of "Alive", their age,
-    //         the amount of times that they have been in contact with
+    //         the amount of times that they have been in sick contact with
     //         someone
     public Person(int a) {
         this.state = "Alive";
@@ -50,9 +50,11 @@ public class Person {
     //MODIFIES: this
     //EFFECTS: Makes contact with one other person
     public void contact(Person p) {
-        p.addContactedTimes();
-        addContactedTimes();
+        if (getState() == "Sick") {
+            p.addContactedTimes();
+        }
+        if (p.getState() == "Sick") {
+            addContactedTimes();
+        }
     }
-
-
 }

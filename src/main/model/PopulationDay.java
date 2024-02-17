@@ -2,26 +2,29 @@ package model;
 
 import java.util.ArrayList;
 
-//Represents the state of people in 1 day of the simulation
-public class Days {
+import static java.lang.Math.pow;
+
+//Represents the state of population in 1 day of the simulation
+public class PopulationDay {
     private ArrayList<Person> people;
     private int deathAmount;
     private int contactedAmount;
     private double contactRate;
+    private double transmissionRate;
 
 
     //REQUIRES: c > 0, d >= 0
-    //EFFECTS: Creates a day with an empty arrayList of people that are either
-    //         "sick" or "alive", a contactRate where it represents the amount
-    //         of people someone will be expected to contact in a day, the
-    //         amount of dead people already dead, and the contactedAmount
-    //         for the whole list
-    public Days(double c, int d) {
+    //EFFECTS: Creates a population with an empty arrayList of people that are
+    //         either "sick" or "alive", a contactRate where it represents the amount
+    //         of people someone will be expected to contact in a day, the transmission
+    //         rate where t >= 0 && t <= 1, the amount of dead people already dead, the
+    //         contactedAmount for the whole list
+    public PopulationDay(double c, int d, double t) {
         this.people = new ArrayList<Person>();
         this.contactRate = c;
+        this.transmissionRate = t;
         this.deathAmount = d;
         this.contactedAmount = 0;
-
     }
 
     public ArrayList<Person> getPeople() {
@@ -61,6 +64,24 @@ public class Days {
         }
     }
 
+    //EFFECTS: returns the total number of people in the arraylist
+    //         that are sick
+    public int returnTotalSickPopulation() {
+        int temp = 0;
+        for (int i = 0; i < people.size(); i++) {
+            if (people.get(i).getState() == "Sick") {
+                temp++;
+            }
+        }
+        return temp;
+    }
+
+    //EFFECTS: returns the total number of people in the arraylist
+    //         that are Alive
+    public int returnTotalAlivePopulation() {
+        return people.size() - returnTotalSickPopulation();
+    }
+
     //MODIFIES: this
     //EFFECTS: Simulate the amount of contact that will happen in one day,
     //         where contactRate represents the amount of people one
@@ -90,7 +111,7 @@ public class Days {
     }
 
     //MODIFIES: this
-    //EFFECTS: calculate total number of contact in list
+    //EFFECTS: calculate total number of normal contact in list
     public void simulateTotalContact() {
         int temp = 0;
         for (int i = 0; i < people.size(); i++) {
@@ -100,8 +121,24 @@ public class Days {
     }
 
 
-
-
-
+    //MODIFIES: this
+    //EFFECTS: Calculates the number of sick people that will be
+    //         generated based on the transmissionRate and contactedTimes,
+    //         the formula used is the following t = transmissionRate and
+    //         c = contactedTimes, 1-(1-t)^c
+    public void simulateSickPeople() {
+        for (int i = 0; i < people.size(); i++) {
+            int temp = people.get(i).getContactedTimes();
+            double store = 0;
+            if (people.get(i).getState() == "Alive"
+                    && temp > 0) {
+                store = 1 - pow((1 - transmissionRate), (double) temp);
+                double index = Math.random();
+                if (store > index) {
+                    people.get(i).setState("Sick");
+                }
+            }
+        }
+    }
 
 }

@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class DaysTest {
+class PopulationDayTest {
     private Person p1;
     private Person p2;
     private Person p3;
     private Person p4;
     private Person p5;
-    private Days d1;
-    private Days d2;
+    private PopulationDay d1;
+    private PopulationDay d2;
     private ArrayList<Person> people;
 
 
@@ -26,8 +26,8 @@ class DaysTest {
         p3 = new Person(20);
         p4 = new Person(30);
         p5 = new Person(30);
-        d1 = new Days(3.5, 10);
-        d2 = new Days(0.6, 15);
+        d1 = new PopulationDay(3.5, 10, 1);
+        d2 = new PopulationDay(0.6, 15, 0);
         people = new ArrayList<Person>();
 
         people.add(p1);
@@ -50,27 +50,54 @@ class DaysTest {
     }
 
     @Test
+    void testReturnTotalSickPopulation() {
+        assertEquals(d1.returnTotalSickPopulation(), 0);
+
+        p1.setState("Sick");
+        p3.setState("Sick");
+
+        d1.addGroupPeople(people);
+
+        assertEquals(d1.returnTotalSickPopulation(), 2);
+    }
+
+    @Test
+    void testReturnTotalAlivePopulation() {
+        assertEquals(d1.returnTotalAlivePopulation(), 0);
+
+        p1.setState("Sick");
+
+        d1.addGroupPeople(people);
+
+        assertEquals(d1.returnTotalAlivePopulation(), 2);
+    }
+
+    @Test
     void testSimulateContactedAmount(){
+        p1.setState("Sick");
+        p2.setState("Sick");
         d1.addGroupPeople(people);
         d1.simulateContactedAmount();
 
-        assertTrue(d1.getContactedAmount() >= 18 && d1.getContactedAmount() <= 24);
+        assertTrue(d1.getContactedAmount() >= 9 && d1.getContactedAmount() <= 20);
 
         d1.addPeople(p4);
         d1.simulateContactedAmount();
 
-        assertTrue(d1.getContactedAmount() >= 24 && d1.getContactedAmount() <= 32);
+        assertTrue(d1.getContactedAmount() >= 6 && d1.getContactedAmount() <= 24);
 
-
+        p1.setState("Alive");
         d2.addGroupPeople(people);
         d2.simulateContactedAmount();
 
-        assertTrue(d2.getContactedAmount() >= 0 && d2.getContactedAmount() <= 6);
+        assertTrue(d2.getContactedAmount() >= 0 && d2.getContactedAmount() <= 3);
 
+        p4.setState("Sick");
+        p5.setState("Sick");
         d2.addPeople(p4);
         d2.addPeople(p5);
 
-        assertTrue(d2.getContactedAmount() >= 0 && d2.getContactedAmount() <= 10);
+        assertTrue(d2.getContactedAmount() >= 0 && d2.getContactedAmount() <= 8);
     }
 
     @Test
@@ -86,6 +113,22 @@ class DaysTest {
         d1.addGroupPeople(people);
         d1.simulateTotalContact();
         assertEquals(d1.getContactedAmount(),4);
+    }
+
+    @Test
+    void SimulateSickPeople() {
+        p2.setState("Sick");
+        p3.setState("Alive");
+        p3.addContactedTimes();
+
+        d2.addGroupPeople(people);
+        d2.simulateSickPeople();
+        assertEquals(d2.returnTotalAlivePopulation(),2);
+
+        p1.addContactedTimes();
+        d1.addGroupPeople(people);
+        d1.simulateSickPeople();
+        assertEquals(d1.returnTotalAlivePopulation(),0);
     }
 
 
