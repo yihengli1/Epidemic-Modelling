@@ -37,9 +37,11 @@ class PopulationDayTest {
     }
 
     @Test
-    void testGetDeathAmount(){
+    void testGetDeathValues(){
         assertEquals(d1.getDeathAmount(), 10);
         assertEquals(d2.getDeathAmount(), 15);
+        assertEquals(d1.getDeathRate(), 0);
+        assertEquals(d2.getDeathRate(), 1);
     }
 
     @Test
