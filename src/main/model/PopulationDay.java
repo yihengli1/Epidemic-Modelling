@@ -85,7 +85,25 @@ public class PopulationDay {
     //EFFECTS: returns the total number of people in the arraylist
     //         that are Alive
     public int returnTotalAlivePopulation() {
-        return people.size() - returnTotalSickPopulation();
+        int temp = 0;
+        for (int i = 0; i < people.size(); i++) {
+            if (people.get(i).getState() == "Alive") {
+                temp++;
+            }
+        }
+        return temp;
+    }
+
+    //EFFECTS: returns the total number of people in the arraylist
+    //         that are Dead
+    public int returnTotalDeadPopulation() {
+        int temp = 0;
+        for (int i = 0; i < people.size(); i++) {
+            if (people.get(i).getState() == "Dead") {
+                temp++;
+            }
+        }
+        return temp;
     }
 
     //MODIFIES: this
@@ -113,12 +131,12 @@ public class PopulationDay {
             }
         }
 
-        simulateTotalContact();
+        returnTotalContact();
     }
 
     //MODIFIES: this
     //EFFECTS: calculate total number of normal contact in list
-    public void simulateTotalContact() {
+    public void returnTotalContact() {
         int temp = 0;
         for (int i = 0; i < people.size(); i++) {
             temp += people.get(i).getContactedTimes();
@@ -142,6 +160,17 @@ public class PopulationDay {
                 double index = Math.random();
                 if (store > index) {
                     people.get(i).setState("Sick");
+                }
+            }
+        }
+    }
+
+    public void simulateDeadPeople() {
+        for (int i = 0; i < people.size(); i++) {
+            if (people.get(i).getState() == "Sick") {
+                double index = Math.random();
+                if (deathRate > index) {
+                    people.get(i).setState("Dead");
                 }
             }
         }

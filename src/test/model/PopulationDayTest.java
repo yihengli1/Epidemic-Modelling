@@ -26,7 +26,7 @@ class PopulationDayTest {
         p3 = new Person(20);
         p4 = new Person(30);
         p5 = new Person(30);
-        d1 = new PopulationDay(3.5, 0, 0.5, 10);
+        d1 = new PopulationDay(3.5, 0, 0, 10);
         d2 = new PopulationDay(0.6, 1, 1, 15);
         people = new ArrayList<Person>();
 
@@ -102,7 +102,7 @@ class PopulationDayTest {
 
     @Test
     void testSimulateTotalContact(){
-        d1.simulateTotalContact();
+        d1.returnTotalContact();
         assertEquals(d1.getContactedAmount(),0);
 
         p1.addContactedTimes();
@@ -111,7 +111,7 @@ class PopulationDayTest {
         p3.addContactedTimes();
 
         d1.addGroupPeople(people);
-        d1.simulateTotalContact();
+        d1.returnTotalContact();
         assertEquals(d1.getContactedAmount(),4);
     }
 
@@ -129,6 +129,20 @@ class PopulationDayTest {
         d1.addGroupPeople(people);
         d1.simulateSickPeople();
         assertEquals(d1.returnTotalAlivePopulation(),1);
+    }
+
+    @Test
+    void testSimulateDeadPeople() {
+        p1.setState("Sick");
+        p2.setState("Sick");
+
+        d1.addGroupPeople(people);
+        d1.simulateDeadPeople();
+        assertEquals(d1.returnTotalDeadPopulation(), 0);
+
+        d2.addGroupPeople(people);
+        d2.simulateDeadPeople();
+        assertEquals(d2.returnTotalDeadPopulation(), 2);
     }
 
 
