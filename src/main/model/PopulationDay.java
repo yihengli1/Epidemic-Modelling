@@ -11,6 +11,7 @@ public class PopulationDay {
     private int contactedAmount;
     private double contactRate;
     private double transmissionRate;
+    private double deathRate;
 
 
     //REQUIRES: c > 0, d >= 0
@@ -18,13 +19,14 @@ public class PopulationDay {
     //         either "sick" or "alive", a contactRate where it represents the amount
     //         of people someone will be expected to contact in a day, the transmission
     //         rate where t >= 0 && t <= 1, the amount of dead people already dead, the
-    //         contactedAmount for the whole list
-    public PopulationDay(double c, int d, double t) {
+    //         death rate where dr >= 0 && dr <= 1,the contactedAmount for the whole list
+    public PopulationDay(double c, double t, double dr, int d) {
         this.people = new ArrayList<Person>();
         this.contactRate = c;
         this.transmissionRate = t;
         this.deathAmount = d;
         this.contactedAmount = 0;
+        this.deathRate = dr;
     }
 
     public ArrayList<Person> getPeople() {
@@ -56,6 +58,10 @@ public class PopulationDay {
 
     public int getContactedAmount() {
         return contactedAmount;
+    }
+
+    public double getDeathRate() {
+        return deathRate;
     }
 
     public void resetContactedAmount() {
