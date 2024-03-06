@@ -13,7 +13,7 @@ public class Person implements Writable {
     //EFFECTS: a person with a state of "Alive", "Sick", or "Dead", their age,
     //         the amount of times that they have been in sick contact with
     //         someone
-    public Person(String s,int a) {
+    public Person(String s, int a) {
         this.state = s;
         this.age = a;
         this.contactedTimes = 0;
@@ -53,10 +53,10 @@ public class Person implements Writable {
     //MODIFIES: this
     //EFFECTS: Makes contact with one other person
     public void contact(Person p) {
-        if (getState() == "Sick") {
+        if (getState().equals("Sick")) {
             p.addContactedTimes();
         }
-        if (p.getState() == "Sick") {
+        if (p.getState().equals("Sick")) {
             addContactedTimes();
         }
     }

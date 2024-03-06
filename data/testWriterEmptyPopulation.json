@@ -1,0 +1,8 @@
+{
+    "deathRate": 1,
+    "transmissionRate": 1,
+    "name": "test2",
+    "day": 2,
+    "people": [],
+    "contactRate": 1
+}

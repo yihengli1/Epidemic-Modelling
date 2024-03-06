@@ -65,6 +65,10 @@ public class PopulationDay implements Writable {
         people.addAll(pl);
     }
 
+    public double getTransmissionRate() {
+        return transmissionRate;
+    }
+
     public double getContactRate() {
         return contactRate;
     }

@@ -1,0 +1,17 @@
+{
+    "deathRate": 0.5,
+    "transmissionRate": 0.5,
+    "name": "test3",
+    "day": 3,
+    "people": [
+        {
+            "state": "Dead",
+            "age": 10
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        }
+    ],
+    "contactRate": 0.5
+}

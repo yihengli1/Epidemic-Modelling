@@ -49,6 +49,12 @@ class PopulationDayTest {
     }
 
     @Test
+    void testTransmission() {
+        assertEquals(d1.getTransmissionRate(), 0);
+        assertEquals(d2.getTransmissionRate(), 1);
+    }
+
+    @Test
     void testCheckDeaths(){
         assertEquals(d1.getDeathRate(), 0);
         assertEquals(d2.getDeathRate(), 1);
