@@ -111,7 +111,6 @@ public class ConsoleApp {
         if (temp.equals("n")) {
             checkStop = false;
         }
-
         population.increaseDay();
     }
 
