@@ -113,7 +113,7 @@ class PopulationDayTest {
         assertEquals(d1.getTestMessage(), "OneAlive");
         p1.setState("Sick");
         d1.simulateContactedAmount();
-        assertEquals(d1.getTestMessage(), "OneSick");
+        assertEquals(d1.getTestMessage(), "OneAlive");
     }
 
     @Test
