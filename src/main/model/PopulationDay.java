@@ -165,8 +165,10 @@ public class PopulationDay implements Writable {
             }
         } else if (checkAllDead()) {
             testMessage = "AllDead";
-        } else if ((returnTotalAlivePopulation() + returnTotalSickPopulation()) == 1) {
+        } else if (returnTotalAlivePopulation() == 1) {
             testMessage = "OneAlive";
+        } else if (returnTotalSickPopulation() == 1) {
+            testMessage = "OneSick";
         }
         returnTotalContact();
     }

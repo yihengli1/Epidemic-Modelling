@@ -111,6 +111,28 @@ class PopulationDayTest {
         p1.setState("Alive");
         d1.simulateContactedAmount();
         assertEquals(d1.getTestMessage(), "OneAlive");
+        p1.setState("Sick");
+        d1.simulateContactedAmount();
+        assertEquals(d1.getTestMessage(), "OneSick");
+    }
+
+    @Test
+    void testSomeDeath() {
+        p1.setState("Dead");
+        p2.setState("Sick");
+        p3.setState("Alive");
+        d1.addGroupPeople(people);
+        d1.simulateContactedAmount();
+
+        assertTrue(d1.getContactedAmount() >= 6 && d1.getContactedAmount() <= 8);
+
+        p4.setState("Dead");
+        d1.addPeople(p4);
+        d1.addPeople(p5);
+
+        d1.simulateContactedAmount();
+
+        assertTrue(d1.getContactedAmount() >= 3 && d1.getContactedAmount() <= 12);
     }
 
     @Test
