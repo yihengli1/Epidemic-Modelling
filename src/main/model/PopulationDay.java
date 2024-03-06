@@ -163,12 +163,22 @@ public class PopulationDay implements Writable {
                     }
                 }
             }
-        } else if (checkAllDead()) {
-            testMessage = "AllDead";
-        } else if ((returnTotalAlivePopulation() + returnTotalSickPopulation()) == 1) {
-            testMessage = "OneAlive";
         }
+        textMessage();
         returnTotalContact();
+    }
+
+    //MODIFIES: this
+    //EFFECTS: Changes the text message of population day to determine whether
+    //         if there's only one person alive, sick, or if everyone is dead
+    public void textMessage() {
+        if (checkAllDead()) {
+            testMessage = "AllDead";
+        } else if (returnTotalAlivePopulation() == 1) {
+            testMessage = "OneAlive";
+        } else if (returnTotalSickPopulation() == 1) {
+            testMessage = "OneSick";
+        }
     }
 
     //MODIFIES: this
