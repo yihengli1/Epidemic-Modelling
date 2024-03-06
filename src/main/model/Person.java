@@ -1,17 +1,20 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 //Represents each individual person and their current state
-public class Person {
+public class Person implements Writable {
     private String state;
     private int age;
     private int contactedTimes;
 
     //REQUIRES: a > 0
-    //EFFECTS: a person with a starting state of "Alive", their age,
+    //EFFECTS: a person with a state of "Alive", "Sick", or "Dead", their age,
     //         the amount of times that they have been in sick contact with
     //         someone
-    public Person(int a) {
-        this.state = "Alive";
+    public Person(String s,int a) {
+        this.state = s;
         this.age = a;
         this.contactedTimes = 0;
     }
@@ -56,5 +59,13 @@ public class Person {
         if (p.getState() == "Sick") {
             addContactedTimes();
         }
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("state", state);
+        json.put("age", age);
+        return json;
     }
 }

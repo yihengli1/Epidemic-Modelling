@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PopulationDayTest {
     private Person p1;
@@ -21,14 +20,14 @@ class PopulationDayTest {
 
     @BeforeEach
     void runBefore(){
-        p1 = new Person(1);
-        p2 = new Person(10);
-        p3 = new Person(20);
-        p4 = new Person(30);
-        p5 = new Person(30);
-        d1 = new PopulationDay(3.5, 0, 0, 10);
-        d2 = new PopulationDay(0.6, 1, 1, 15);
-        people = new ArrayList<Person>();
+        p1 = new Person("Alive", 1);
+        p2 = new Person("Alive", 10);
+        p3 = new Person("Alive", 20);
+        p4 = new Person("Alive", 30);
+        p5 = new Person("Alive", 30);
+        d1 = new PopulationDay("Test",3.5, 0, 0,0);
+        d2 = new PopulationDay("Test1",0.6, 1, 1,0);
+        people = new ArrayList<>();
 
         people.add(p1);
         people.add(p2);
@@ -37,11 +36,32 @@ class PopulationDayTest {
     }
 
     @Test
-    void testGetDeathValues(){
-        assertEquals(d1.getDeathAmount(), 10);
-        assertEquals(d2.getDeathAmount(), 15);
+    void testName() {
+        assertEquals(d1.getName(), "Test");
+        assertEquals(d2.getName(), "Test1");
+    }
+
+    @Test
+    void testDay() {
+        assertEquals(d1.getDay(), 0);
+        d1.increaseDay();
+        assertEquals(d1.getDay(), 1);
+    }
+
+    @Test
+    void testCheckDeaths(){
         assertEquals(d1.getDeathRate(), 0);
         assertEquals(d2.getDeathRate(), 1);
+
+        d1.addPeople(p1);
+        assertFalse(d1.checkAllDead());
+        p1.setState("Dead");
+        assertTrue(d1.checkAllDead());
+        p2.setState("Dead");
+        d1.addPeople(p2);
+        assertTrue(d1.checkAllDead());
+        d1.addPeople(p3);
+        assertFalse(d1.checkAllDead());
     }
 
     @Test
@@ -72,6 +92,19 @@ class PopulationDayTest {
         d1.addGroupPeople(people);
 
         assertEquals(d1.returnTotalAlivePopulation(), 2);
+    }
+
+    @Test
+    void testAllDeathAndOnePerson() {
+        p1.setState("Dead");
+        p2.setState("Dead");
+        p3.setState("Dead");
+        d1.addGroupPeople(people);
+        d1.simulateContactedAmount();
+        assertEquals(d1.getTestMessage(), "AllDead");
+        p1.setState("Alive");
+        d1.simulateContactedAmount();
+        assertEquals(d1.getTestMessage(), "OneAlive");
     }
 
     @Test

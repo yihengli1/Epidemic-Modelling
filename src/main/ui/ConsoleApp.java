@@ -2,12 +2,19 @@ package ui;
 
 import model.Person;
 import model.PopulationDay;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import static java.lang.Thread.sleep;
 
 public class ConsoleApp {
+    private static final String JSON_STORE = "./data/population.json";
+
+    private String name;
     private int numPeople;
     private int startingSick;
     private double transmissionRate;
@@ -18,6 +25,10 @@ public class ConsoleApp {
     private PopulationDay population;
     private int day;
     private boolean checkStop;
+    private boolean loaded;
+
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     public ConsoleApp() {
         runConsole();
@@ -26,37 +37,55 @@ public class ConsoleApp {
     public void runConsole() {
         System.out.println("Welcome Message");
         input = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
 
-        askQuestions();
 
-        initialize();
+        loadData();
 
-        while (checkStop == true) {
-            runSimulation();
+        if (loaded) {
+            initialize2();
+            while (checkStop) {
+                runSimulation();
+            }
+            saveData();
+        } else {
+            askQuestions();
+
+            initialize();
+
+            while (checkStop) {
+                runSimulation();
+            }
+            saveData();
         }
-
     }
 
     public void initialize() {
-        population = new PopulationDay(contactRate, transmissionRate, deathRate, 0);
         day = 1;
+        population = new PopulationDay(name, contactRate, transmissionRate, deathRate, day);
         checkStop = true;
 
         for (int i = 0; i < startingSick; i++) {
-            Person temp = new Person(20);
+            Person temp = new Person("Alive", 20);
             temp.setState("Sick");
             population.addPeople(temp);
         }
 
         for (int i = 0; i < (numPeople - startingSick); i++) {
-            Person temp = new Person(20);
+            Person temp = new Person("Alive", 20);
             population.addPeople(temp);
         }
     }
 
+    public void initialize2() {
+        day = 1;
+        checkStop = true;
+    }
+
 
     public void runSimulation() {
-        System.out.println("Day" + day + ": ");
+        System.out.println("Day " + population.getDay() + ": ");
 
         addPeople();
 
@@ -68,7 +97,7 @@ public class ConsoleApp {
 
         statusUpdate();
 
-        String temp = "";
+        String temp;
 
         do {
             System.out.println("Continue to next day? (y/n)");
@@ -83,12 +112,16 @@ public class ConsoleApp {
             checkStop = false;
         }
 
-        day++;
-
+        population.increaseDay();
     }
 
     @SuppressWarnings("methodlength")
     public void askQuestions() {
+
+        System.out.println("What do you want the name of your simulation to be?");
+        name = input.next();
+        System.out.println("Your name for the simulation will be: " + name);
+
         do {
             System.out.println("What will the transmission rate for this simulation be? (between 0 - 1) ");
             transmissionRate = input.nextDouble();
@@ -152,12 +185,12 @@ public class ConsoleApp {
         System.out.println("Current People Alive: " + population.returnTotalAlivePopulation());
         System.out.println("Current People Sick: " + population.returnTotalSickPopulation());
         System.out.println("Current People Dead: "  + population.returnTotalDeadPopulation());
-        System.out.println("Total People in population: " + (population.getPeopleSize() + population.getDeathAmount()));
+        System.out.println("Total People in population: " + (population.getPeopleSize()));
         System.out.println("---------------------------");
     }
 
     public void addPeople() {
-        String temp = "";
+        String temp;
 
         do {
             System.out.println("Do you want to add people to simulation? (y/n)");
@@ -168,7 +201,7 @@ public class ConsoleApp {
             }
         } while (!temp.equals("y") && !temp.equals("n"));
 
-        int temp1 = 0;
+        int temp1;
 
         if (temp.equals("y")) {
             do {
@@ -181,11 +214,63 @@ public class ConsoleApp {
             } while (temp1 < 0);
 
             for (int i = 0; i < temp1; i++) {
-                Person newPeople = new Person(20);
+                Person newPeople = new Person("Alive", 20);
                 population.addPeople(newPeople);
             }
 
             System.out.println("Successfully added " + temp1 + " people!");
+        }
+    }
+
+    public void saveData() {
+        String temp;
+        do {
+            System.out.println("Do you want to save your data of simulation " + population.getName() + "? (y/n)");
+            temp = input.next();
+
+            if (!temp.equals("y") && !temp.equals("n")) {
+                System.out.println("Invalid input. Please enter y or n.");
+            }
+        } while (!temp.equals("y") && !temp.equals("n"));
+        if (temp.equals("y")) {
+            saveSimulation();
+        }
+    }
+
+    public void saveSimulation() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(population);
+            jsonWriter.close();
+            System.out.println("Saved " + population.getName() + "'s simulation to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    public void loadData() {
+        String temp;
+        do {
+            System.out.println("Do you want to load your data of simulation? (y/n)");
+            temp = input.next();
+
+            if (!temp.equals("y") && !temp.equals("n")) {
+                System.out.println("Invalid input. Please enter y or n.");
+            }
+        } while (!temp.equals("y") && !temp.equals("n"));
+        if (temp.equals("y")) {
+            loadSimulation();
+        }
+    }
+
+    public void loadSimulation() {
+        loaded = false;
+        try {
+            population = jsonReader.read();
+            System.out.println("Loaded " + population.getName() + " from " + JSON_STORE);
+            loaded = true;
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 
