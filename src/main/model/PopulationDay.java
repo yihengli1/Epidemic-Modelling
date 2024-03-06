@@ -202,6 +202,8 @@ public class PopulationDay implements Writable {
         }
     }
 
+    //EFFECTS: simulates the number of dead people based on
+    //         the death rate
     public void simulateDeadPeople() {
         for (Person person : people) {
             if (person.getState().equals("Sick")) {
@@ -213,6 +215,8 @@ public class PopulationDay implements Writable {
         }
     }
 
+    //EFFECTS: Converts name of simulation, contact rate, transmission rate,
+    //         death rate, day, and people into a JSON Object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

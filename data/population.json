@@ -1,0 +1,1009 @@
+{
+    "deathRate": 0.1,
+    "transmissionRate": 0.2,
+    "name": "Donald",
+    "day": 6,
+    "people": [
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Dead",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        },
+        {
+            "state": "Sick",
+            "age": 20
+        },
+        {
+            "state": "Alive",
+            "age": 20
+        }
+    ],
+    "contactRate": 4
+}

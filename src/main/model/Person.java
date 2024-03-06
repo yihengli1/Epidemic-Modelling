@@ -61,6 +61,7 @@ public class Person implements Writable {
         }
     }
 
+    //EFFECTS: Converts state and age of person into a JSON Object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
