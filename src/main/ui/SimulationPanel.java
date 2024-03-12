@@ -6,46 +6,55 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.Font;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 
-public class SimulationPanel extends JFrame {
+public class SimulationPanel extends JFrame implements ActionListener {
     ImageIcon image;
     JLabel label;
     JPanel redPanel; //JPanel is container to hold all components
     JPanel bluePanel;
     JPanel greenPanel;
+    JButton button;
 
     @SuppressWarnings("methodlength")
     public SimulationPanel() {
 
         createCustomLabel();
 
-        redPanel = new JPanel();
-        redPanel.setBackground(Color.RED); //set background colour of panel to red
-        redPanel.setBounds(0, 0, 250, 250); //set position and bounds of panel
-        redPanel.setLayout(null); //set Layout of componenets, new BorderLayout() defaults to border layout
-                                  //null = label layout, can change with setBounds on label
+        createPanels();
+
+        button = new JButton();
+        button.setBounds(400, 100, 300, 150);
+        button.addActionListener(new ActionListener() { //sets the action of pressing the button
+            @Override                                   //can use lambda function of (e -> sout"Who") too
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == button) {
+                    System.out.println("Who");
+                }
+            }
+        });
+        button.setText("I'm a text"); //sets text of button
+        button.setFocusable(false); //removes border around text
+        button.setFont(new Font("Zapfino", Font.PLAIN, 20));
 
 
-        bluePanel = new JPanel();
-        bluePanel.setBackground(Color.BLUE);
-        bluePanel.setBounds(250, 0, 250, 250);
-        bluePanel.setLayout(null);
-
-        greenPanel = new JPanel();
-        greenPanel.setBackground(Color.GREEN);
-        greenPanel.setBounds(0, 250, 500, 250);
-        greenPanel.setLayout(null);
+        //button.setEnabled(false); //disable/enable button
 
         createFrame();
+
         this.add(label);
         greenPanel.add(label);
         this.add(redPanel);
         this.add(bluePanel);
         this.add(greenPanel);
+        this.add(button);
 
         this.setVisible(true); //make frame visible
+
+
 
         revalidate(); //reset components
     }
@@ -92,5 +101,28 @@ public class SimulationPanel extends JFrame {
         Image img = image.getImage();
         Image newImg = img.getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH); //Scale smooth way
         image = new ImageIcon(newImg);
+    }
+
+    public void createPanels() {
+        redPanel = new JPanel();
+        redPanel.setBackground(Color.RED); //set background colour of panel to red
+        redPanel.setBounds(0, 0, 250, 250); //set position and bounds of panel
+        redPanel.setLayout(null); //set Layout of componenets, new BorderLayout() defaults to border layout
+        //null = label layout, can change with setBounds on label
+
+        bluePanel = new JPanel();
+        bluePanel.setBackground(Color.BLUE);
+        bluePanel.setBounds(250, 0, 250, 250);
+        bluePanel.setLayout(null);
+
+        greenPanel = new JPanel();
+        greenPanel.setBackground(Color.GREEN);
+        greenPanel.setBounds(0, 250, 500, 250);
+        greenPanel.setLayout(null);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
