@@ -46,9 +46,10 @@ public class JsonReader {
         double contactRate = jsonObject.getDouble("contactRate");
         double transmissionRate = jsonObject.getDouble("transmissionRate");
         double deathRate = jsonObject.getDouble("deathRate");
+        double recoveryRate = jsonObject.getDouble("recoveryRate");
         int day = jsonObject.getInt("day");
 
-        PopulationDay pd = new PopulationDay(name, contactRate, transmissionRate, deathRate, day);
+        PopulationDay pd = new PopulationDay(name, contactRate, transmissionRate, deathRate, recoveryRate, day);
         addPeople(pd, jsonObject);
         return pd;
     }

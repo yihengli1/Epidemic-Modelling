@@ -63,7 +63,7 @@ public class ConsoleApp {
 
     public void initialize() {
         day = 1;
-        population = new PopulationDay(name, contactRate, transmissionRate, deathRate, day);
+        population = new PopulationDay(name, contactRate, transmissionRate, deathRate, recoveryRate, day);
         checkStop = true;
 
         for (int i = 0; i < startingSick; i++) {
@@ -92,6 +92,7 @@ public class ConsoleApp {
         System.out.println("Simulation in progress...");
 
         population.simulateDeadPeople();
+        population.simulateRecovery();
         population.simulateContactedAmount();
         population.simulateSickPeople();
 
@@ -117,7 +118,7 @@ public class ConsoleApp {
     @SuppressWarnings("methodlength")
     public void askQuestions() {
 
-        System.out.println("What do you want the name of your simulation to be?");
+        System.out.println("What do you want the name of your simulation to be? (No spaces)");
         name = input.next();
         System.out.println("Your name for the simulation will be: " + name);
 
@@ -140,6 +141,16 @@ public class ConsoleApp {
             }
         } while (deathRate < 0 || deathRate > 1);
         System.out.println("Your Death Rate will be: " + deathRate);
+
+        do {
+            System.out.println("What will the recovery rate for this simulation be? (between 0 - 1)");
+            recoveryRate = input.nextDouble();
+
+            if (recoveryRate < 0 || recoveryRate > 1) {
+                System.out.println("Invalid input. Please enter a number between 0 and 1.");
+            }
+        } while (recoveryRate < 0 || recoveryRate > 1);
+        System.out.println("Your Recovery Rate will be: " + recoveryRate);
 
         do {
             System.out.println("What will the contact rate for this simulation be? (any positive number)");
@@ -174,6 +185,7 @@ public class ConsoleApp {
         ///
         System.out.println("Transmission Rate: " + transmissionRate);
         System.out.println("Death Rate: " + deathRate);
+        System.out.println("Recovery Rate: " + recoveryRate);
         System.out.println("Contact Rate: " + contactRate);
         System.out.println("People in Population: " + numPeople);
         System.out.println("People that will start sick: " + startingSick);

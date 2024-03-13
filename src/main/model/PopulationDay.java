@@ -17,6 +17,7 @@ public class PopulationDay implements Writable {
     private final double contactRate;
     private final double transmissionRate;
     private final double deathRate;
+    private final double recoveryRate;
     private String testMessage;
 
 
@@ -26,13 +27,14 @@ public class PopulationDay implements Writable {
     //         day, the transmission rate where t >= 0 && t <= 1, the amount of dead people
     //         already dead, the death rate where dr >= 0 && dr <= 1,the contactedAmount for
     //         the whole list, number of days since simulation
-    public PopulationDay(String n, double c, double t, double dr, int day) {
+    public PopulationDay(String n, double c, double t, double dr, double rr, int day) {
         this.name = n;
         this.people = new ArrayList<>();
         this.contactRate = c;
         this.transmissionRate = t;
         this.contactedAmount = 0;
         this.deathRate = dr;
+        this.recoveryRate = rr;
         this.day = day;
     }
 
@@ -75,6 +77,10 @@ public class PopulationDay implements Writable {
 
     public int getContactedAmount() {
         return contactedAmount;
+    }
+
+    public double getRecoveryRate() {
+        return recoveryRate;
     }
 
     public double getDeathRate() {
@@ -225,6 +231,17 @@ public class PopulationDay implements Writable {
         }
     }
 
+    public void simulateRecovery() {
+        for (Person person : people) {
+            if (person.getState().equals("Sick")) {
+                double index = Math.random();
+                if (recoveryRate > index) {
+                    person.setState("Alive");
+                }
+            }
+        }
+    }
+
     //EFFECTS: Converts name of simulation, contact rate, transmission rate,
     //         death rate, day, and people into a JSON Object
     @Override
@@ -234,6 +251,7 @@ public class PopulationDay implements Writable {
         json.put("contactRate", contactRate);
         json.put("transmissionRate", transmissionRate);
         json.put("deathRate", deathRate);
+        json.put("recoveryRate", recoveryRate);
         json.put("day", day);
         json.put("people", peopleToJson());
         return json;

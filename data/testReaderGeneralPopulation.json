@@ -2,6 +2,7 @@
   "deathRate": 0.3,
   "transmissionRate": 0.2,
   "name": "test1",
+  "recoveryRate": 0.2,
   "day": 2,
   "people": [
     {

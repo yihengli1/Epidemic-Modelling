@@ -1,5 +1,6 @@
 {
     "deathRate": 1,
+    "recoveryRate": 0.2,
     "transmissionRate": 1,
     "name": "test2",
     "day": 2,

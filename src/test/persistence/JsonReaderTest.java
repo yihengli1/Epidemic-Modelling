@@ -33,6 +33,7 @@ class JsonReaderTest extends JsonTest {
             assertEquals(0.1, pd.getDeathRate());
             assertEquals(0.2, pd.getTransmissionRate());
             assertEquals(1, pd.getDay());
+            assertEquals(0.3, pd.getRecoveryRate());
             assertEquals(0, pd.getPeopleSize());
         } catch (IOException e) {
             fail("Couldn't read from file");

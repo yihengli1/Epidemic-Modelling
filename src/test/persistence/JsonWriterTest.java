@@ -19,7 +19,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterInvalidFile() {
         try {
-            PopulationDay pd = new PopulationDay("test1", 0.2, 0.3, 0.1, 1);
+            PopulationDay pd = new PopulationDay("test1", 0.2, 0.3, 0.1, 0.2, 1);
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
@@ -32,7 +32,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterEmptyWorkroom() {
         try {
-            PopulationDay pd = new PopulationDay("test2", 1, 1, 1, 2);
+            PopulationDay pd = new PopulationDay("test2", 1, 1, 1, 0.2, 2);
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyPopulation.json");
             writer.open();
             writer.write(pd);
@@ -50,7 +50,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterGeneralWorkroom() {
         try {
-            PopulationDay pd = new PopulationDay("test3", 0.5, 0.5, 0.5, 3);
+            PopulationDay pd = new PopulationDay("test3", 0.5, 0.5, 0.5, 0.2, 3);
             pd.addPeople(new Person("Dead", 10));
             pd.addPeople(new Person("Alive", 20));
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralPopulation.json");
