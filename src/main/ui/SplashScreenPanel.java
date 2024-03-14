@@ -3,6 +3,7 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
+//represents a splash screen that the user first sees upon running the program
 public class SplashScreenPanel extends JFrame {
     JLabel label;
     ImageIcon image;
@@ -34,6 +35,7 @@ public class SplashScreenPanel extends JFrame {
 
     }
 
+    //EFFECTS: creates the text loading epidemic simulator
     private void createLabel() {
         label = new JLabel();
         label.setIcon(image);

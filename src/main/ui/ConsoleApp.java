@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 import static java.lang.Thread.sleep;
 
+//Represents a console user interface for an epidemic model
 public class ConsoleApp {
     private static final String JSON_STORE = "./data/population.json";
 
@@ -30,10 +31,12 @@ public class ConsoleApp {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    //EFFECTS: Runs the console
     public ConsoleApp() {
         runConsole();
     }
 
+    //EFFECTS: Starts and runs the console, can start from loaded state or fresh state
     public void runConsole() {
         System.out.println("Welcome Message");
         input = new Scanner(System.in);
@@ -45,7 +48,7 @@ public class ConsoleApp {
         loadData();
 
         if (loaded) {
-            initialize2();
+            checkStop = true;
             while (checkStop) {
                 runSimulation();
             }
@@ -62,6 +65,7 @@ public class ConsoleApp {
         }
     }
 
+    //EFFECTS: initialize the amount of sick and alive people in the population
     public void initialize() {
         day = 1;
         population = new PopulationDay(name, contactRate, transmissionRate, deathRate, recoveryRate, day);
@@ -79,11 +83,7 @@ public class ConsoleApp {
         }
     }
 
-    public void initialize2() {
-        checkStop = true;
-    }
-
-
+    //EFFECTS: Runs simulation by simulating all of the alive, sick, and dead people
     public void runSimulation() {
         System.out.println("Day " + population.getDay() + ": ");
 
@@ -116,6 +116,8 @@ public class ConsoleApp {
     }
 
     @SuppressWarnings("methodlength")
+    //EFFECTS: Asks questions about the user and record their inputs, if they give an invalid answer, keep trying or
+    //         throw an error
     public void askQuestions() {
 
         System.out.println("What do you want the name of your simulation to be? (No spaces)");
@@ -192,6 +194,7 @@ public class ConsoleApp {
         System.out.println("---------------------------");
     }
 
+    //EFFECTS: Reports the status of all the people that are currently alive, sick, dead, and the total population
     public void statusUpdate() {
         System.out.println("Current People Alive: " + population.returnTotalAlivePopulation());
         System.out.println("Current People Sick: " + population.returnTotalSickPopulation());
@@ -200,6 +203,7 @@ public class ConsoleApp {
         System.out.println("---------------------------");
     }
 
+    //EFFECTS: Asks the user if they want to add people to the population after each day in the simulation
     public void addPeople() {
         String temp;
 
@@ -233,6 +237,7 @@ public class ConsoleApp {
         }
     }
 
+    //EFFECTS: Saves the data of the current simulation
     public void saveData() {
         String temp;
         do {
@@ -248,6 +253,7 @@ public class ConsoleApp {
         }
     }
 
+    //EFFECTS: saves the current simulation by using jsonWriter to write a JSON doc to store the information
     public void saveSimulation() {
         try {
             jsonWriter.open();
@@ -259,6 +265,7 @@ public class ConsoleApp {
         }
     }
 
+    //EFFECTS: asks the user if they want to load any previous data
     public void loadData() {
         String temp;
         do {
@@ -274,6 +281,7 @@ public class ConsoleApp {
         }
     }
 
+    //EFFECTS: loads the previous simulation by using jsonReader to read a JSON doc that stored the information
     public void loadSimulation() {
         loaded = false;
         try {

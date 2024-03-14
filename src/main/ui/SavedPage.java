@@ -3,6 +3,7 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
+//Represents a pop-up that tells the user that their simulation is saved
 public class SavedPage extends JFrame {
     JLabel label;
 

@@ -733,6 +733,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         setVariableText();
     }
 
+    //EFFECTS: after loading the simulation, makes sure that all previous variables can be displayed to the user
     public void setVariableText() {
         simulationNameField.setText(population.getName());
         contactRateField.setText(Double.toString(population.getContactRate()));
