@@ -13,15 +13,7 @@ public class SplashScreenPanel extends JFrame {
         Image newImg = img.getScaledInstance(125, 125, java.awt.Image.SCALE_SMOOTH); //Scale smooth way
         image = new ImageIcon(newImg);
 
-        label = new JLabel();
-        label.setIcon(image);
-        label.setText("Loading Epidemic Simulator!");
-        label.setFont(new Font("Arial Black", Font.PLAIN, 15));
-        label.setForeground(Color.WHITE);
-        label.setHorizontalAlignment(JLabel.CENTER);
-        label.setVerticalAlignment(JLabel.CENTER);
-        label.setHorizontalTextPosition(JLabel.CENTER); //set text LEFT, CENTER, RIGHT of imageIcon
-        label.setVerticalTextPosition(JLabel.BOTTOM); //set text TOP, DOWN, RIGHT of imageIcon
+        createLabel();
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //exit out of application when hit x
         this.setResizable(false); //makes impossible to resize frame
@@ -40,5 +32,17 @@ public class SplashScreenPanel extends JFrame {
         new SimulationPanel();
 
 
+    }
+
+    private void createLabel() {
+        label = new JLabel();
+        label.setIcon(image);
+        label.setText("Loading Epidemic Simulator!");
+        label.setFont(new Font("Arial Black", Font.PLAIN, 15));
+        label.setForeground(Color.WHITE);
+        label.setHorizontalAlignment(JLabel.CENTER);
+        label.setVerticalAlignment(JLabel.CENTER);
+        label.setHorizontalTextPosition(JLabel.CENTER); //set text LEFT, CENTER, RIGHT of imageIcon
+        label.setVerticalTextPosition(JLabel.BOTTOM); //set text TOP, DOWN, RIGHT of imageIcon
     }
 }
