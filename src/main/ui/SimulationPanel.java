@@ -75,9 +75,9 @@ public class SimulationPanel extends JFrame implements ActionListener {
     private double recoveryRate;
     private int totalPeople;
     private int startSickPeople;
-    private int totalAddPeople;
     private int day;
     private Boolean loaded;
+    private Boolean checkStop;
 
 
     //EFFECTS: Begins Simulation
@@ -310,6 +310,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         peopleAddField = new JTextField();
         peopleAddField.setPreferredSize(new Dimension(45,20));
         peopleAddField.setEnabled(false);
+        peopleAddField.setText("0");
     }
 
     //EFFECTS: Create label with Biohazard Logo
@@ -533,7 +534,6 @@ public class SimulationPanel extends JFrame implements ActionListener {
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
-        this.dispose();
         new SavedPage();
 
     }
@@ -548,7 +548,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         informationPanel.setLayout(new GridLayout(2,3));
 
         simulationPanel = new JPanel();
-        simulationPanel.setBackground(Color.RED); //set background colour of panel to red
+        simulationPanel.setBackground(new Color(0,128,1)); //set background colour of panel to red
         simulationPanel.setBounds(0, 100, 500, 600); //set position and bounds of panel
         simulationPanel.setPreferredSize(new Dimension(500, 600));
         simulationPanel.setLayout(new GridLayout(5,1)); //set Layout of components, new BorderLayout()
@@ -602,14 +602,16 @@ public class SimulationPanel extends JFrame implements ActionListener {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
+        checkStop = false;
         checkConditions();
-        disableVariables();
-        enableFields();
+        if (!checkStop) {
+            disableVariables();
+            enableFields();
 
-        initialize();
+            initialize();
 
-        setSimText();
-
+            setSimText();
+        }
     }
 
     //EFFECTS: checks the conditions of the simulation, if there is an error, throw a new Error Panel
@@ -627,16 +629,15 @@ public class SimulationPanel extends JFrame implements ActionListener {
             totalPeople = Integer.parseInt(peopleField.getText());
             startSickPeople = Integer.parseInt(peopleSickField.getText());
 
+            if (contactAmount < 0 || transmissionRate > 1 || transmissionRate < 0
+                    || deathRate > 1 || deathRate < 0 || recoveryRate > 1 || recoveryRate < 0
+                    || totalPeople < 1 || startSickPeople > totalPeople || startSickPeople < 1) {
+                new ErrorPanel();
+                checkStop = true;
+            }
         } catch (Exception e) {
-            this.dispose();
             new ErrorPanel();
-        }
-
-        if (contactAmount < 0 || transmissionRate > 1 || transmissionRate < 0
-                || deathRate > 1 || deathRate < 0 || recoveryRate > 1 || recoveryRate < 0
-                || totalPeople < 1 || startSickPeople > totalPeople || startSickPeople < 1) {
-            this.dispose();
-            new ErrorPanel();
+            checkStop = true;
         }
     }
 
@@ -705,17 +706,17 @@ public class SimulationPanel extends JFrame implements ActionListener {
         int temp = 0;
         try {
             temp = Integer.parseInt(peopleAddField.getText());
+            for (int i = 0; i < temp; i++) {
+                Person newPeople = new Person("Alive", 20);
+                population.addPeople(newPeople);
+            }
+
+            runSimulation();
+            population.increaseDay();
+            setSimText();
         } catch (Exception e) {
             new ErrorPanel();
         }
-        for (int i = 0; i < temp; i++) {
-            Person newPeople = new Person("Alive", 20);
-            population.addPeople(newPeople);
-        }
-
-        runSimulation();
-        population.increaseDay();
-        setSimText();
     }
 
     //EFFECTS: Ends the simulation
