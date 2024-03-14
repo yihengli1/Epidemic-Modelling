@@ -37,6 +37,7 @@ public class ConsoleApp {
     public void runConsole() {
         System.out.println("Welcome Message");
         input = new Scanner(System.in);
+        input.useDelimiter("\\n");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
@@ -79,7 +80,6 @@ public class ConsoleApp {
     }
 
     public void initialize2() {
-        day = 1;
         checkStop = true;
     }
 

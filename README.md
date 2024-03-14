@@ -44,10 +44,9 @@ Java.
 ## User Stories
 - As a user, I want to be able to add a person to the population
 - As a user, I want to be able to view the simulation in real time
-- As a user, I want to be able to view the statistical graphs at the end of the simulation
+- As a user, I want to be able to view the statistical information at the end of the simulation
 - As a user, I want to be able to turn on/off multiple variable conditions
-- As a user, when I select the quit option from the starting menu, I want to be reminded
-to save the simulation to file and have the option to do so or not
+- As a user, when I'm simulating the simulation, I want to be able to save my simulation
 - As a user, when I start the application, I want to be given the option to load
 any previous simulations from file
 

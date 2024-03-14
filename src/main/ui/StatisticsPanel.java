@@ -1,5 +1,9 @@
 package ui;
 
-public class StatisticsPanel {
+import model.PopulationDay;
 
+public class StatisticsPanel {
+    public StatisticsPanel(PopulationDay pd) {
+
+    }
 }
