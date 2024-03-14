@@ -618,7 +618,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
     public void checkConditions() {
         try {
             simulationName = simulationNameField.getText();
-            contactAmount = Integer.parseInt(contactRateField.getText());
+            contactAmount = Double.parseDouble(contactRateField.getText());
             transmissionRate = Double.parseDouble(transmissionRateField.getText());
             deathRate = Double.parseDouble(deathRateField.getText());
             if (recoverCheckBox.isSelected()) {
@@ -730,6 +730,16 @@ public class SimulationPanel extends JFrame implements ActionListener {
         disableVariables();
         enableFields();
         setSimText();
+        setVariableText();
+    }
+
+    public void setVariableText() {
+        simulationNameField.setText(population.getName());
+        contactRateField.setText(Double.toString(population.getContactRate()));
+        transmissionRateField.setText(Double.toString(population.getTransmissionRate()));
+        deathRateField.setText(Double.toString(population.getDeathRate()));
+        recoveryRateField.setText(Double.toString(population.getRecoveryRate()));
+        peopleField.setText(Integer.toString(population.getPeopleSize()));
     }
 
     @Override
