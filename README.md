@@ -50,3 +50,16 @@ Java.
 - As a user, when I start the application, I want to be given the option to load
 any previous simulations from file
 
+## Instructions for Grader
+- You can generate the first required action related to the user story "adding multiple people to a Population"
+by initializing the number of people in the population at the start of the simulation
+- You can generate the second required action related to the user story "adding multiple people to a Population"
+by adding people throughout duration of the simulation
+- You can locate my visual component by the splash screen and at the statistics panel
+- You can save the state of my application by clicking on the Save Simulation button after initializing a 
+simulation
+- You can reload the state of my application by clicking on the Load Simulation button before initializing a new
+simulation
+
+
+
