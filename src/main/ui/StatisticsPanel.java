@@ -47,6 +47,7 @@ public class StatisticsPanel extends JFrame {
         this.setVisible(true);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates the title for the panel to display the user's simulation name
     private void addName(PopulationDay pd) {
         name = new JLabel();
@@ -55,6 +56,7 @@ public class StatisticsPanel extends JFrame {
         name.setHorizontalAlignment(JLabel.CENTER);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates information about the average number of people that were sick in users simulation
     private void createAverageSick(PopulationDay pd) {
         double average2 = ((double) pd.returnTotalSickPopulation() / (double) pd.getDay());
@@ -71,6 +73,7 @@ public class StatisticsPanel extends JFrame {
         averageSick.setHorizontalAlignment(JLabel.CENTER);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates information about the average number of people that were dead in users simulation
     private void createAverageDeath(PopulationDay pd) {
         double average1 = ((double) pd.returnTotalDeadPopulation() / (double) pd.getDay());
@@ -87,6 +90,7 @@ public class StatisticsPanel extends JFrame {
         averageDeath.setHorizontalAlignment(JLabel.CENTER);
     }
 
+    //MODIFIES: this
     //EFFECTS: adds panel to the frame and adds all components to the panel
     private void addPanel() {
         panel = new JPanel();
@@ -102,6 +106,7 @@ public class StatisticsPanel extends JFrame {
         panel.add(averageSick);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates information about the percentage of people that are alive in users simulation
     private void createPercentAlive(PopulationDay pd) {
         double percent1 = ((double) pd.returnTotalAlivePopulation() / (double) pd.getPeopleSize());
@@ -119,6 +124,7 @@ public class StatisticsPanel extends JFrame {
         percentAlive.setHorizontalAlignment(JLabel.CENTER);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates information about the percentage of people that are sick in users simulation
     private void createPercentSick(PopulationDay pd) {
         double percent2 = ((double) pd.returnTotalSickPopulation() / (double) pd.getPeopleSize());
@@ -136,6 +142,7 @@ public class StatisticsPanel extends JFrame {
         percentSick.setHorizontalAlignment(JLabel.CENTER);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates information about the number of people that died in users simulation
     private void createDeadLabel(PopulationDay pd) {
         deadLabel = new JLabel();
@@ -145,6 +152,7 @@ public class StatisticsPanel extends JFrame {
         deadLabel.setHorizontalAlignment(JLabel.CENTER);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates two photos that are displayed alongside all information packages, sad and smile
     private void createPhoto() {
         smile = new ImageIcon("./src/smile.png");

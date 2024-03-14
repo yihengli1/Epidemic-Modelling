@@ -54,7 +54,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
     private JTextField peopleAddField;
 
     private JPanel informationPanel;
-    private JPanel simulationPanel; //JPanel is container to hold all components
+    private JPanel simulationPanel;
     private JPanel bluePanel;
     private JPanel orangePanel;
     private JPanel greenPanel;
@@ -99,11 +99,13 @@ public class SimulationPanel extends JFrame implements ActionListener {
         revalidate(); //reset components
     }
 
+    //MODIFIES: this
     //EFFECTS: Creates all labels for simulation Statistics
     public void createSimulationLabels() {
         createStatisticsLabel();
     }
 
+    //MODIFIES: this
     //EFFECTS: Creates all labels for information Statistics
     public void createInformationLabels() {
         createInfoLabels();
@@ -111,12 +113,14 @@ public class SimulationPanel extends JFrame implements ActionListener {
         createInfoFields();
     }
 
+    //MODIFIES: this
     //EFFECTS: Creates labels for the name and the logo
     public void createTopLabels() {
         createLogoLabel();
         createNameLabel();
     }
 
+    //MODIFIES: this
     //EFFECTS: Creates labels for the Variables
     public void createMiddleLabels() {
         createRatesLabels();
@@ -127,6 +131,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         createSimulationName();
     }
 
+    //MODIFIES: this
     //EFFECTS: Creates labels for starting the simulation and load/save file
     public void createBottomLabels() {
         createBotLabels();
@@ -148,6 +153,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         //this.getContentPane().setBackground(new Color(0xBB3B3B)); //change color of background
     }
 
+    //MODIFIES: this
     //EFFECTS: Adds each individual JPanel to JFrame
     public void addComponents() {
         bluePanel.add(logoLabel);
@@ -167,6 +173,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         this.add(orangePanel);
     }
 
+    //MODIFIES: this
     //EFFECTS: Adds all components relevant to simulation
     public void addRedPanel() {
         simulationPanel.add(daysSimulationLabel);
@@ -177,6 +184,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
 
     }
 
+    //MODIFIES: this
     //EFFECTS: Adds all components relevant to simulation information
     public void addYellowPanel() {
         informationPanel.add(simulationNameLabel);
@@ -188,6 +196,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         informationPanel.add(endSimulationButton);
     }
 
+    //MODIFIES: this
     //EFFECTS: Adds all components relevant to variables labels
     public void addGreenPanel() {
         greenPanel.add(contactRateLabel);
@@ -199,6 +208,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         greenPanel.add(peopleSickLabel);
     }
 
+    //MODIFIES: this
     //EFFECTS: Adds all components relevant to variables fields
     public void addPinkPanel() {
         pinkPanel.add(contactRateField);
@@ -210,6 +220,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         pinkPanel.add(peopleSickField);
     }
 
+    //MODIFIES: this
     //EFFECTS: Adds all components relevant to saving/loading/starting simulation
     public void addOrangePanel() {
         orangePanel.add(simulationLabel);
@@ -221,6 +232,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
     }
 
     @SuppressWarnings("methodlength")
+    //MODIFIES: this
     //EFFECTS: creates statistics labels for simulation
     public void createStatisticsLabel() {
         daysSimulationLabel = new JLabel();
@@ -255,6 +267,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
 
     }
 
+    //MODIFIES: this
     //EFFECTS: creates information labels for simulation
     public void createInfoLabels() {
         peopleAddLabel = new JLabel();
@@ -263,12 +276,14 @@ public class SimulationPanel extends JFrame implements ActionListener {
         peopleAddLabel.setHorizontalAlignment(JLabel.CENTER);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates information buttons for simulation
     public void createInfoButtons() {
         createNextDayButton();
         endSimulationButton();
     }
 
+    //MODIFIES: this
     //EFFECTS: creates nextDay button which proceeds simulation to the next day
     public void createNextDayButton() {
         nextDayButton = new JButton();
@@ -287,6 +302,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         nextDayButton.setEnabled(false);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates information buttons for ending the simulation and prompting the statistics JFrame
     public void endSimulationButton() {
         endSimulationButton = new JButton();
@@ -305,6 +321,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         endSimulationButton.setEnabled(false);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates information fields for simulation
     public void createInfoFields() {
         peopleAddField = new JTextField();
@@ -313,6 +330,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         peopleAddField.setText("0");
     }
 
+    //MODIFIES: this
     //EFFECTS: Create label with Biohazard Logo
     public void createLogoLabel() {
         produceImg();
@@ -335,6 +353,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         //logoLabel.setBounds(0,0,75,75); //set bounds of label for null
     }
 
+    //MODIFIES: this
     //EFFECTS: Get Image file and resize
     public void produceImg() {
         image = new ImageIcon("./src/bio.png"); //Load image
@@ -343,6 +362,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         image = new ImageIcon(newImg);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates label with my name
     public void createNameLabel() {
         nameLabel = new JLabel();
@@ -353,6 +373,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         nameLabel.setHorizontalAlignment(JLabel.CENTER);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates checkbox for toggling the recovery option
     public void createCheckBoxLabel() {
         recoverLabel = new JLabel();
@@ -361,6 +382,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         recoverLabel.setHorizontalAlignment(JLabel.LEFT);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates variable label to ask for how many people in population
     public void createPeopleLabel() {
         peopleLabel = new JLabel();
@@ -385,6 +407,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         simulationNameField.setPreferredSize(new Dimension(45,20));
     }
 
+    //MODIFIES: this
     //EFFECTS: creates variable label to ask for about the variable rates for the simulation
     public void createRatesLabels() {
 
@@ -410,6 +433,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         recoveryRateLabel.setHorizontalAlignment(JLabel.LEFT);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates variable fields to ask for the rates and conditions of the simulation
     public void createFields() {
         contactRateField = new JTextField();
@@ -434,6 +458,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
 
     }
 
+    //MODIFIES: this
     //EFFECTS: creates labels for saving/loading/starting the simulation
     public void createBotLabels() {
         simulationLabel = new JLabel();
@@ -455,6 +480,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
 
     }
 
+    //MODIFIES: this
     //EFFECTS: creates simulation button to start simulation
     public void createSimulationButton() {
         simulationButton = new JButton();
@@ -472,6 +498,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         simulationButton.setFont(new Font("Ariel Black", Font.PLAIN, 11));
     }
 
+    //MODIFIES: this
     //EFFECTS: creates loading file button to retrieve previous simulation
     public void createLoadFileButton() {
         loadFileButton = new JButton();
@@ -495,6 +522,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         loadFileButton.setFont(new Font("Ariel Black", Font.PLAIN, 11));
     }
 
+    //MODIFIES: this
     //Loads data from file
     public void loadData() {
         loaded = false;
@@ -507,6 +535,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         }
     }
 
+    //MODIFIES: this
     //EFFECTS: creates saving file button to save current simulation
     public void createSaveFileButton() {
         saveFileButton = new JButton();
@@ -538,6 +567,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
 
     }
 
+    //MODIFIES: this
     //EFFECTS: creates panels for the JFrame and all the components
     @SuppressWarnings("methodlength")
     public void createPanels() {
@@ -579,6 +609,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         orangePanel.setLayout(new GridLayout(6,1, 5, -10));
     }
 
+    //MODIFIES: this
     //EFFECTS: creates recovery box to toggle recovery rate
     public void createRecoverBox() {
         recoverCheckBox = new JCheckBox();
@@ -597,6 +628,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         });
     }
 
+    //MODIFIES: this
     //EFFECTS: starts the simulation
     public void startSimulation() {
         jsonWriter = new JsonWriter(JSON_STORE);
@@ -614,6 +646,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         }
     }
 
+    //MODIFIES: this
     //EFFECTS: checks the conditions of the simulation, if there is an error, throw a new Error Panel
     public void checkConditions() {
         try {
@@ -641,6 +674,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         }
     }
 
+    //MODIFIES: this
     //EFFECTS: Disables all variables to prevent tampering of simulation
     public void disableVariables() {
         simulationNameField.setEnabled(false);
@@ -655,6 +689,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         loadFileButton.setEnabled(false);
     }
 
+    //MODIFIES: this
     //EFFECTS: Enables all disabled fields at the start of the simulation
     public void enableFields() {
         saveFileButton.setVisible(true);
@@ -664,6 +699,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         nextDayButton.setEnabled(true);
     }
 
+    //MODIFIES: this
     //EFFECTS: Initializes the PopulationDay
     public void initialize() {
         day = 1;
@@ -683,6 +719,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
 
     }
 
+    //MODIFIES: this
     //EFFECTS: Runs the simulation
     public void runSimulation() {
 
@@ -692,6 +729,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         population.simulateSickPeople();
     }
 
+    //MODIFIES: this
     //EFFECTS: Sets the simulation texts to current day simulation data
     public void setSimText() {
         daysSimulationLabel.setText("Days In Simulation: " + population.getDay());
@@ -701,6 +739,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         simulationTotalLabel.setText("Total People in Population: " + population.getPeopleSize());
     }
 
+    //MODIFIES: this
     //EFFECTS: Makes simulation render the next day
     public void goNextDay() {
         int temp = 0;
@@ -719,12 +758,14 @@ public class SimulationPanel extends JFrame implements ActionListener {
         }
     }
 
+    //MODIFIES: this
     //EFFECTS: Ends the simulation
     public void endSimulation() {
         this.dispose();
         new StatisticsPanel(population);
     }
 
+    //MODIFIES: this
     //EFFECTS: starts the simulation from a loaded file
     public void startSimulationLoad() {
         disableVariables();
@@ -733,6 +774,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
         setVariableText();
     }
 
+    //MODIFIES: this
     //EFFECTS: after loading the simulation, makes sure that all previous variables can be displayed to the user
     public void setVariableText() {
         simulationNameField.setText(population.getName());

@@ -35,6 +35,7 @@ public class SplashScreenPanel extends JFrame {
 
     }
 
+    //MODIFIES: this
     //EFFECTS: creates the text loading epidemic simulator
     private void createLabel() {
         label = new JLabel();

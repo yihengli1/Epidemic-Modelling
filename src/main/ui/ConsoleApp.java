@@ -36,6 +36,7 @@ public class ConsoleApp {
         runConsole();
     }
 
+    //MODIFIES: this
     //EFFECTS: Starts and runs the console, can start from loaded state or fresh state
     public void runConsole() {
         System.out.println("Welcome Message");
@@ -65,6 +66,7 @@ public class ConsoleApp {
         }
     }
 
+    //MODIFIES: this
     //EFFECTS: initialize the amount of sick and alive people in the population
     public void initialize() {
         day = 1;
@@ -83,6 +85,7 @@ public class ConsoleApp {
         }
     }
 
+    //MODIFIES: this
     //EFFECTS: Runs simulation by simulating all of the alive, sick, and dead people
     public void runSimulation() {
         System.out.println("Day " + population.getDay() + ": ");
@@ -116,6 +119,7 @@ public class ConsoleApp {
     }
 
     @SuppressWarnings("methodlength")
+    //MODIFIES: this
     //EFFECTS: Asks questions about the user and record their inputs, if they give an invalid answer, keep trying or
     //         throw an error
     public void askQuestions() {
@@ -194,6 +198,7 @@ public class ConsoleApp {
         System.out.println("---------------------------");
     }
 
+
     //EFFECTS: Reports the status of all the people that are currently alive, sick, dead, and the total population
     public void statusUpdate() {
         System.out.println("Current People Alive: " + population.returnTotalAlivePopulation());
@@ -203,6 +208,7 @@ public class ConsoleApp {
         System.out.println("---------------------------");
     }
 
+    //MODIFIES: this
     //EFFECTS: Asks the user if they want to add people to the population after each day in the simulation
     public void addPeople() {
         String temp;
@@ -253,6 +259,7 @@ public class ConsoleApp {
         }
     }
 
+    //MODIFIES: this
     //EFFECTS: saves the current simulation by using jsonWriter to write a JSON doc to store the information
     public void saveSimulation() {
         try {
@@ -281,6 +288,7 @@ public class ConsoleApp {
         }
     }
 
+    //MODIFIES: this
     //EFFECTS: loads the previous simulation by using jsonReader to read a JSON doc that stored the information
     public void loadSimulation() {
         loaded = false;

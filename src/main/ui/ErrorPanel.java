@@ -44,6 +44,7 @@ public class ErrorPanel extends JFrame {
         this.setVisible(true);
     }
 
+    //MODIFIES: this
     //EFFECTS: Renders the 5th paragraph
     private void paragraph5() {
         paragraph5 = new JLabel();
@@ -53,6 +54,7 @@ public class ErrorPanel extends JFrame {
         paragraph5.setHorizontalAlignment(JLabel.LEFT);
     }
 
+    //MODIFIES: this
     //EFFECTS: Renders the 4th paragraph
     private void paragraph4() {
         paragraph4 = new JLabel();
@@ -62,6 +64,7 @@ public class ErrorPanel extends JFrame {
         paragraph4.setHorizontalAlignment(JLabel.LEFT);
     }
 
+    //MODIFIES: this
     //EFFECTS: Renders the 3rd paragraph
     private void paragraph3() {
         paragraph3 = new JLabel();
@@ -71,6 +74,7 @@ public class ErrorPanel extends JFrame {
         paragraph3.setHorizontalAlignment(JLabel.LEFT);
     }
 
+    //MODIFIES: this
     //EFFECTS: Renders the 2nd paragraph
     private void paragraph2() {
         paragraph2 = new JLabel();
@@ -80,6 +84,7 @@ public class ErrorPanel extends JFrame {
         paragraph2.setHorizontalAlignment(JLabel.LEFT);
     }
 
+    //MODIFIES: this
     //EFFECTS: Renders the 1st paragraph
     private void paragraph1() {
         paragraph1 = new JLabel();
@@ -89,6 +94,7 @@ public class ErrorPanel extends JFrame {
         paragraph1.setHorizontalAlignment(JLabel.LEFT);
     }
 
+    //MODIFIES: this
     //EFFECTS: Creates frame of error panel
     private void createFrame() {
         this.setTitle("Error Page!"); //Sets title of Frame
@@ -98,6 +104,7 @@ public class ErrorPanel extends JFrame {
         this.setLayout(new GridLayout(6,1)); //makes all bounds for labels null, standard layout
     }
 
+    //MODIFIES: this
     //EFFECTS: Creates split frame of error panel at the top to separate button from title
     private void createSplitPanel() {
         splitPanel1 = new JPanel();
