@@ -65,6 +65,7 @@ public class PopulationDay implements Writable {
     //EFFECTS: Adds a group of people to people in our day
     public void addGroupPeople(ArrayList<Person> pl) {
         people.addAll(pl);
+        EventLog.getInstance().logEvent(new Event("Added group of " + pl.size()));
     }
 
     public double getTransmissionRate() {
@@ -172,6 +173,7 @@ public class PopulationDay implements Writable {
         }
         textMessage();
         returnTotalContact();
+        EventLog.getInstance().logEvent(new Event("Finished simulating day: " + day + "of simulation"));
     }
 
     //MODIFIES: this

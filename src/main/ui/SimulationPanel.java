@@ -1,9 +1,14 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Person;
 import model.PopulationDay;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -13,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Array;
 
 //Create Simulation Panel that the user can simulate the simulation
 public class SimulationPanel extends JFrame implements ActionListener {
@@ -704,18 +710,20 @@ public class SimulationPanel extends JFrame implements ActionListener {
     public void initialize() {
         day = 1;
         population = new PopulationDay(simulationName, contactAmount, transmissionRate, deathRate, recoveryRate, day);
+        ArrayList<Person> temp1 = new ArrayList<Person>();
 
         for (int i = 0; i < startSickPeople; i++) {
             Person temp = new Person("Alive", 20);
             temp.setState("Sick");
-            population.addPeople(temp);
+            temp1.add(temp);
         }
 
         for (int i = 0; i < (totalPeople - startSickPeople); i++) {
             Person temp = new Person("Alive", 20);
-            population.addPeople(temp);
+            temp1.add(temp);
         }
 
+        population.addGroupPeople(temp1);
 
     }
 
@@ -745,10 +753,13 @@ public class SimulationPanel extends JFrame implements ActionListener {
         int temp = 0;
         try {
             temp = Integer.parseInt(peopleAddField.getText());
+            ArrayList<Person> temp1 = new ArrayList<>();
             for (int i = 0; i < temp; i++) {
                 Person newPeople = new Person("Alive", 20);
-                population.addPeople(newPeople);
+                temp1.add(newPeople);
             }
+
+            population.addGroupPeople(temp1);
 
             runSimulation();
             population.increaseDay();
@@ -763,6 +774,9 @@ public class SimulationPanel extends JFrame implements ActionListener {
     public void endSimulation() {
         this.dispose();
         new StatisticsPanel(population);
+        for (Event e: EventLog.getInstance()) {
+            System.out.println(e);
+        }
     }
 
     //MODIFIES: this

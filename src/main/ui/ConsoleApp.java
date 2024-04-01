@@ -86,7 +86,7 @@ public class ConsoleApp {
     }
 
     //MODIFIES: this
-    //EFFECTS: Runs simulation by simulating all of the alive, sick, and dead people
+    //EFFECTS: Runs simulation by simulating all the alive, sick, and dead people
     public void runSimulation() {
         System.out.println("Day " + population.getDay() + ": ");
 

@@ -61,5 +61,20 @@ simulation
 - You can reload the state of my application by clicking on the Load Simulation button before initializing a new
 simulation
 
+## Phase 4: Task 2
 
+Mon Apr 01 09:18:33 PDT 2024
+Added group of 100
+
+Mon Apr 01 09:18:35 PDT 2024
+Added group of 10
+
+Mon Apr 01 09:18:35 PDT 2024
+Finished simulating day: 1of simulation
+
+Mon Apr 01 09:18:36 PDT 2024
+Added group of 10
+
+Mon Apr 01 09:18:36 PDT 2024
+Finished simulating day: 2of simulation
 

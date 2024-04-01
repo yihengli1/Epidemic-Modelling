@@ -1,6 +1,10 @@
 package ui;
 
+import model.EventLog;
+import model.Person;
 import model.PopulationDay;
+
+import java.util.ArrayList;
 
 public class Main {
     //represents the starting block of simulation

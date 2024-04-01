@@ -40,7 +40,7 @@ public class SplashScreenPanel extends JFrame {
     private void createLabel() {
         label = new JLabel();
         label.setIcon(image);
-        label.setText("Loading Epidemic Simulator!");
+        label.setText("Loading Epidemic Simulator...");
         label.setFont(new Font("Arial Black", Font.PLAIN, 15));
         label.setForeground(Color.WHITE);
         label.setHorizontalAlignment(JLabel.CENTER);
