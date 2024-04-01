@@ -770,7 +770,7 @@ public class SimulationPanel extends JFrame implements ActionListener {
     }
 
     //MODIFIES: this
-    //EFFECTS: Ends the simulation
+    //EFFECTS: Ends the simulation and prints out all event logs
     public void endSimulation() {
         this.dispose();
         new StatisticsPanel(population);

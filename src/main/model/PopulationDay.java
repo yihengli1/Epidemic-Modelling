@@ -62,7 +62,7 @@ public class PopulationDay implements Writable {
         people.add(p);
     }
 
-    //EFFECTS: Adds a group of people to people in our day
+    //EFFECTS: Adds a group of people to people in our day and logs event
     public void addGroupPeople(ArrayList<Person> pl) {
         people.addAll(pl);
         EventLog.getInstance().logEvent(new Event("Added group of " + pl.size()));
@@ -149,7 +149,7 @@ public class PopulationDay implements Writable {
     //         where contactRate represents the amount of people one
     //         person will be expected to see each day,
     //         People can contact each other multiple times in 1 day, but,
-    //         cannot contact one another
+    //         cannot contact one another, also logs event
     public void simulateContactedAmount() {
         resetContactedAmount();
         if (!checkAllDead() && (returnTotalAlivePopulation() + returnTotalSickPopulation()) != 1) {
