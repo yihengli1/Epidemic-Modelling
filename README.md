@@ -78,3 +78,26 @@ Added group of 10
 Mon Apr 01 09:18:36 PDT 2024
 Finished simulating day: 2of simulation
 
+## Phase 4: Task 3
+
+In terms of refactoring my project, I feel like my PopulationDay
+class could have been broken down into two classes. Right now, 
+my PopulationDay has all simulation information, and the methods 
+that actually simulates the simulation. Breaking it down where PopulationDay
+and SimulationDay into two different classes where SimulationDay holds
+an object PopulationDay and has all the methods to simulate 
+would make the code more readable. Additionally, my GUI code for 
+SimulationPanel was incredibly messy and unnecessarily long. There
+was a lot of duplicate code that were just responsible for creating labels, 
+frames, and buttons that could have been simplified to a function. I also
+had to use the @SuppressWarning a couple of times.
+
+I also didn't comment the functionality behind some of the code in my UI
+and PopulationDay classes. In my project I had comments above each method
+as per the requirements but, sometimes the implementation was incredibly 
+confusing for me when I looked back on the code. For my PopulationDay the 
+simulation of all the data was also quite confusing so for next time, I should
+document what's happening in the implementation (for ex. //generate odds 
+or //look through population to find sick people) of the methods as well to
+make the code more readable. Overall, this project was very found to build
+with the help of the project requirements and was an incredible learning journey!
