@@ -97,7 +97,7 @@ and PopulationDay classes. In my project I had comments above each method
 as per the requirements but, sometimes the implementation was incredibly 
 confusing for me when I looked back on the code. For my PopulationDay the 
 simulation of all the data was also quite confusing so for next time, I should
-document what's happening in the implementation (for ex. //generate odds 
+document what's happening in the implementation (ex. //generate odds 
 or //look through population to find sick people) of the methods as well to
 make the code more readable. Overall, this project was very found to build
 with the help of the project requirements and was an incredible learning journey!
