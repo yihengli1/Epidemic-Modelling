@@ -1,24 +1,30 @@
-# Epidemic Simulation 
+# 🦠 Epidemic Simulation
+Welcome to the Epidemic Simulation App—a dynamic tool designed to model the spread of diseases based on real-world conditions. 
 
-## What will the application do?
-My application will essentially be an **epidemic spread simulation**. 
-There will be an interface where users can insert the conditions for a disease 
-such as the infection rate, fatality rate, number of people in population, etc.
-Additionally, I will be adding special features that can be turned on/off by the
-user such as population growth, recovery rates, etc. Then, once the user has 
-determined the conditions for the disease, they can view the simulation through
-an interface which showcases the population and their current condition (normal,
-sick, dead). 
+# 🚀 What Does It Do?
+This application simulates the spread of an epidemic based on customizable conditions. You can adjust key variables like:
 
-## Who will use it? 
-My application can be used in various situations. From a high school student
-to a data analyst specialist, there is a limitless amount of uses for this application.
-From one perspective, my application can be used as a "for fun" model where users can play
-around and test out different combinations of conditions and look at the statistical
-outcomes of each event. From another perspective, this application can be used on a more
-macro level where government health agencies, educational institutions, and even data analysts
-can use this application. From providing simulations that encompass various factors and 
-allows researchers or doctors in testing different intervention method to having this tool
-used as an educational tool for providing hands-on experience in modeling and analyzing 
-epidemic situation. At the end of the day, **Anyone could use it.**
+Infection Rate
+Fatality Rate
+Population Size
+Recovery Rate (optional toggle)
+Population Growth (optional toggle)
+Once you’ve set the conditions, the simulation visually displays the population’s status—showing who’s healthy, infected, or deceased. It’s an interactive, data-driven way to see how diseases can spread under different circumstances.
 
+# 🌍 Who Is It For?
+The Epidemic Simulation App is designed for everyone:
+
+Students learning about epidemiology and data modeling
+Educators looking for interactive tools to teach complex concepts
+Data Analysts & Researchers testing outbreak scenarios and intervention strategies
+Curious Minds who enjoy experimenting with different variables to see how small changes can create big outcomes
+
+# 💡 Why Use This App?
+Simple, user-friendly interface
+Customizable parameters for detailed simulations
+Toggle advanced features like recovery rates and population growth
+Great for both casual experimentation and serious analysis
+
+# 🧠 UML Diagram
+
+![UML_Design_Diagram](https://github.com/user-attachments/assets/e7578828-799b-4c3a-9c62-12b21fa16cd6)
